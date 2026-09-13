@@ -70,7 +70,6 @@ Open **Services** (`Win + R` → type `services.msc` → Enter) and set the foll
 |---|---|
 | `Acer Gaming Service` | PredatorSense background daemon |
 | `Acer Quick Access Service` | Hotkey management (Fn keys) |
-| `AcerService` | Core Acer system service |
 | `Acer Power Button Service` | Hardware button handling |
 
 For each service:
