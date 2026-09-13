@@ -19,12 +19,12 @@ A lightweight, open-source replacement for PredatorSense on Acer Predator laptop
 
 ## Requirements
 
-- Acer Predator laptop (uses Acer's `AcerGamingFunction` WMI interface)
+- Acer Predator laptop
 - Windows 10 or 11
 - **.NET 10 Runtime** — download from [dotnet.microsoft.com](https://dotnet.microsoft.com/download/dotnet/10.0)
 - Must be run as **Administrator**
 
-> **Note:** This app has only been tested on one specific Predator model. It may or may not work on yours. Check the disclaimer at the bottom.
+> **Note:** It may or may not work on yours. Check the disclaimer at the bottom.
 
 ---
 
@@ -48,26 +48,11 @@ Go to the [Releases](../../releases) page and download the latest `PredatorContr
 
 ## Replacing PredatorSense — Full Setup Guide
 
-This app communicates directly with Acer's WMI driver (which is part of Windows, not PredatorSense), so you can safely disable PredatorSense and all its background services.
-
-### Step 0 — Configure Custom Fans (Do this first!)
-
-Since setting arbitrary custom fan speeds dynamically via WMI is extremely complex and model-dependent, this app commands the driver to switch to the hardware **"Custom"** fan profile, which inherits whatever custom fan speed or curve was last saved on the system.
-
-Before disabling PredatorSense:
-1. Open **PredatorSense**.
-2. Go to **Fan Control** and set your **Custom** fan speeds or curves exactly as you want them.
-3. Apply the settings.
-4. Close PredatorSense. 
-
-Once set, our app's **Custom** fan setting will use this saved curve even after PredatorSense is completely disabled.
-
 ### Step 1 — Disable PredatorSense Services
 
 Open **Services** (`Win + R` → type `services.msc` → Enter) and set the following services to **Disabled**:
 
 | Service Name | What it does |
-|---|---|
 | `Acer Gaming Service` | PredatorSense background daemon |
 | `Acer Quick Access Service` | Hotkey management (Fn keys) |
 | `Acer Power Button Service` | Hardware button handling |
@@ -78,7 +63,7 @@ For each service:
 3. Click **Stop** if it's running
 4. Click **OK**
 
-> **Note:** The WMI driver that actually controls hardware (power modes, fans, RGB) is separate from these services and remains active — that's what this app uses.
+> **Note:** Do not disable 'Acer system monitor' service. The app will work if disabled but you won't get accurate readings of temperature and fan speed(rpm)
 
 ### Step 2 — Disable PredatorSense from Startup
 
@@ -124,26 +109,20 @@ If you want to fully remove it:
 >  Do this **after** confirming Predator Control works correctly for you. Keep PredatorSense installed as a fallback until you're happy.
 
 ---
-
-## How It Works
-
-The app talks directly to the `AcerGamingFunction` WMI class in the `root\WMI` namespace — the same low-level interface PredatorSense uses under the hood. No Acer background services are required.
-
----
-
 ## Disclaimer
 
 >  **This app was built with the assistance of AI tools.**
->
-> It has been tested on **one system only** (an Acer Predator (Helios Neo 16) running Windows 11). Compatibility with other Predator models, Windows versions, or hardware configurations is not guaranteed.
->
+> Compatibility with other Predator models, Windows versions, or hardware configurations is not guaranteed.
 > **Use at your own risk. Any issues, damage, or unexpected behavior that occurs as a result of using this app are solely your responsibility.** The author provides no warranty, support, or guarantee of any kind.
->
 > If something breaks — reflash your BIOS, reinstall PredatorSense, or restore from a backup. That's on you.
 
 ---
-<img width="388" height="380" alt="image" src="https://github.com/user-attachments/assets/5a2d6423-8ab9-4a23-aa51-f14eb2a215d9" />
-<img width="484" height="137" alt="image" src="https://github.com/user-attachments/assets/f02178d9-92e5-4c1d-be54-587b0bff4b95" />
+<img width="886" height="1491" alt="Screenshot_20260913233005" src="https://github.com/user-attachments/assets/a74e22c1-a136-4f2a-9ae9-44043a9182fa" />
+<img width="900" height="1017" alt="Screenshot_20260913233020" src="https://github.com/user-attachments/assets/03dc8a34-24a4-4669-9edc-94eec57509bb" />
+<img width="443" height="539" alt="Screenshot_20260913231346" src="https://github.com/user-attachments/assets/434220df-25be-4937-bcdd-7ffbf34c398d" />
+<img width="433" height="257" alt="Screenshot_20260913233037" src="https://github.com/user-attachments/assets/6fe39280-a438-46dc-90bc-5c91e71b786c" />
+<img width="407" height="232" alt="Screenshot_20260913233048" src="https://github.com/user-attachments/assets/8edd1ae9-00b4-4573-9712-6b6a79f1ded5" />
+<img width="1582" height="174" alt="Screenshot_20260913233137" src="https://github.com/user-attachments/assets/ed90d484-7a6a-49c4-96da-e0a5e10b529d" />
 
 ---
 ##  Strictly Not for Sale
