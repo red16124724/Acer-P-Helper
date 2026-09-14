@@ -62,9 +62,7 @@ For each service:
 2. Set **Startup type** to `Disabled`
 3. Click **Stop** if it's running
 4. Click **OK**
-
-> **Note:** Do not disable 'Acer system monitor' service. The app will work if disabled but you won't get accurate readings of temperature and fan speed(rpm)
-
+   
 ### Step 2 — Disable PredatorSense from Startup
 
 1. Press `Ctrl + Shift + Esc` to open Task Manager
